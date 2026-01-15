@@ -1,0 +1,38 @@
+[
+  {
+    "clientId": "client123",
+    "clientSecret": "secret123",
+    "name": "Test Application",
+    "description": "OAuth2 test client with all grant types",
+    "allowedGrants": ["client_credentials", "password", "refresh_token", "authorization_code"],
+    "redirectUris": ["http://localhost:8080/callback", "http://localhost:3001/callback", "https://oauth.pstmn.io/v1/callback"],
+    "active": true
+  },
+  {
+    "clientId": "client456",
+    "clientSecret": "secret456",
+    "name": "Integration App",
+    "description": "Integration testing client - client_credentials only",
+    "allowedGrants": ["client_credentials", "refresh_token"],
+    "redirectUris": [],
+    "active": true
+  },
+  {
+    "clientId": "webapp",
+    "clientSecret": "webappsecret",
+    "name": "Web Application",
+    "description": "Web app client with authorization_code flow",
+    "allowedGrants": ["authorization_code", "refresh_token"],
+    "redirectUris": ["http://localhost:4200/callback", "http://localhost:5173/callback", "http://127.0.0.1:5500/callback"],
+    "active": true
+  },
+  {
+    "clientId": "mobile",
+    "clientSecret": "mobilesecret",
+    "name": "Mobile Application",
+    "description": "Mobile app with password grant",
+    "allowedGrants": ["password", "refresh_token"],
+    "redirectUris": ["myapp://callback"],
+    "active": true
+  }
+]

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "1",
+    "orderId": "ORD-2024-001",
+    "userId": "2",
+    "customerName": "John Doe",
+    "customerEmail": "user@example.com",
+    "status": "completed",
+    "items": [
+      {
+        "productId": "1",
+        "productName": "Laptop Pro 15",
+        "quantity": 1,
+        "unitPrice": 1299.99,
+        "subtotal": 1299.99
+      },
+      {
+        "productId": "2",
+        "productName": "Wireless Mouse",
+        "quantity": 2,
+        "unitPrice": 29.99,
+        "subtotal": 59.98
+      }
+    ],
+    "subtotal": 1359.97,
+    "tax": 135.99,
+    "shipping": 15.00,
+    "total": 1510.96,
+    "currency": "USD",
+    "paymentMethod": "credit_card",
+    "shippingAddress": {
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    },
+    "createdAt": "2024-11-15T10:30:00Z",
+    "updatedAt": "2024-11-16T14:20:00Z",
+    "completedAt": "2024-11-16T14:20:00Z"
+  },
+  {
+    "id": "2",
+    "orderId": "ORD-2024-002",
+    "userId": "3",
+    "customerName": "Jane Smith",
+    "customerEmail": "jane.smith@example.com",
+    "status": "shipped",
+    "items": [
+      {
+        "productId": "3",
+        "productName": "4K Monitor 27 inch",
+        "quantity": 1,
+        "unitPrice": 449.99,
+        "subtotal": 449.99
+      },
+      {
+        "productId": "4",
+        "productName": "Mechanical Keyboard RGB",
+        "quantity": 1,
+        "unitPrice": 89.99,
+        "subtotal": 89.99
+      }
+    ],
+    "subtotal": 539.98,
+    "tax": 53.99,
+    "shipping": 20.00,
+    "total": 613.97,
+    "currency": "USD",
+    "paymentMethod": "paypal",
+    "shippingAddress": {
+      "street": "456 Oak Avenue",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "USA"
+    },
+    "trackingNumber": "1Z999AA10123456784",
+    "createdAt": "2024-12-01T08:15:00Z",
+    "updatedAt": "2024-12-03T16:45:00Z",
+    "shippedAt": "2024-12-03T16:45:00Z"
+  },
+  {
+    "id": "3",
+    "orderId": "ORD-2024-003",
+    "userId": "4",
+    "customerName": "Mike Brown",
+    "customerEmail": "mike.brown@example.com",
+    "status": "processing",
+    "items": [
+      {
+        "productId": "7",
+        "productName": "External SSD 1TB",
+        "quantity": 3,
+        "unitPrice": 119.99,
+        "subtotal": 359.97
+      }
+    ],
+    "subtotal": 359.97,
+    "tax": 35.99,
+    "shipping": 10.00,
+    "total": 405.96,
+    "currency": "USD",
+    "paymentMethod": "credit_card",
+    "shippingAddress": {
+      "street": "789 Pine Road",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "USA"
+    },
+    "createdAt": "2024-12-20T14:20:00Z",
+    "updatedAt": "2024-12-21T09:30:00Z"
+  },
+  {
+    "id": "4",
+    "orderId": "ORD-2025-001",
+    "userId": "2",
+    "customerName": "John Doe",
+    "customerEmail": "user@example.com",
+    "status": "pending",
+    "items": [
+      {
+        "productId": "5",
+        "productName": "USB-C Hub 7-in-1",
+        "quantity": 2,
+        "unitPrice": 39.99,
+        "subtotal": 79.98
+      },
+      {
+        "productId": "6",
+        "productName": "Webcam HD 1080p",
+        "quantity": 1,
+        "unitPrice": 69.99,
+        "subtotal": 69.99
+      }
+    ],
+    "subtotal": 149.97,
+    "tax": 14.99,
+    "shipping": 8.00,
+    "total": 172.96,
+    "currency": "USD",
+    "paymentMethod": "bank_transfer",
+    "shippingAddress": {
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    },
+    "createdAt": "2025-01-10T11:00:00Z",
+    "updatedAt": "2025-01-10T11:00:00Z"
+  },
+  {
+    "id": "5",
+    "orderId": "ORD-2025-002",
+    "userId": "3",
+    "customerName": "Jane Smith",
+    "customerEmail": "jane.smith@example.com",
+    "status": "cancelled",
+    "items": [
+      {
+        "productId": "8",
+        "productName": "Desk Lamp LED",
+        "quantity": 1,
+        "unitPrice": 34.99,
+        "subtotal": 34.99
+      }
+    ],
+    "subtotal": 34.99,
+    "tax": 3.49,
+    "shipping": 5.00,
+    "total": 43.48,
+    "currency": "USD",
+    "paymentMethod": "credit_card",
+    "shippingAddress": {
+      "street": "456 Oak Avenue",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "USA"
+    },
+    "createdAt": "2025-01-12T15:30:00Z",
+    "updatedAt": "2025-01-13T10:15:00Z",
+    "cancelledAt": "2025-01-13T10:15:00Z",
+    "cancellationReason": "Product out of stock"
+  }
+]

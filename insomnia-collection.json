@@ -1,0 +1,170 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "resources": [
+    {
+      "_type": "request_group",
+      "name": "Mock API Server",
+      "description": "API mock con OAuth2, API Key y Basic Auth",
+      "environment": {
+        "base_url": "http://localhost:3000"
+      }
+    },
+    {
+      "_type": "request_group",
+      "parentId": "root",
+      "name": "1. OAuth 2.0",
+      "description": "Autenticación OAuth 2.0"
+    },
+    {
+      "_type": "request",
+      "parentId": "1. OAuth 2.0",
+      "name": "Get Token",
+      "method": "POST",
+      "url": "{{ base_url }}/oauth/token",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"grant_type\": \"client_credentials\",\n  \"client_id\": \"client123\",\n  \"client_secret\": \"secret123\"\n}"
+      }
+    },
+    {
+      "_type": "request",
+      "parentId": "1. OAuth 2.0",
+      "name": "Get Users (OAuth)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/users",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ access_token }}"
+        }
+      ]
+    },
+    {
+      "_type": "request",
+      "parentId": "1. OAuth 2.0",
+      "name": "Get User by ID (OAuth)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/users/1",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ access_token }}"
+        }
+      ]
+    },
+    {
+      "_type": "request_group",
+      "parentId": "root",
+      "name": "2. API Key",
+      "description": "Autenticación por API Key"
+    },
+    {
+      "_type": "request",
+      "parentId": "2. API Key",
+      "name": "Get Products (API Key)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/products",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "value": "api-key-123456"
+        }
+      ]
+    },
+    {
+      "_type": "request",
+      "parentId": "2. API Key",
+      "name": "Get Product by ID (API Key)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/products/1",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "value": "api-key-123456"
+        }
+      ]
+    },
+    {
+      "_type": "request_group",
+      "parentId": "root",
+      "name": "3. Basic Auth",
+      "description": "Autenticación Basic"
+    },
+    {
+      "_type": "request",
+      "parentId": "3. Basic Auth",
+      "name": "Get Sales (Basic Auth)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/sales",
+      "authentication": {
+        "type": "basic",
+        "username": "admin",
+        "password": "admin123"
+      }
+    },
+    {
+      "_type": "request",
+      "parentId": "3. Basic Auth",
+      "name": "Get Sale by ID (Basic Auth)",
+      "method": "GET",
+      "url": "{{ base_url }}/api/sales/1",
+      "authentication": {
+        "type": "basic",
+        "username": "admin",
+        "password": "admin123"
+      }
+    },
+    {
+      "_type": "request_group",
+      "parentId": "root",
+      "name": "4. All Resources",
+      "description": "Todos los recursos disponibles"
+    },
+    {
+      "_type": "request",
+      "parentId": "4. All Resources",
+      "name": "Get All Users",
+      "method": "GET",
+      "url": "{{ base_url }}/api/users",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "value": "api-key-123456"
+        }
+      ]
+    },
+    {
+      "_type": "request",
+      "parentId": "4. All Resources",
+      "name": "Get All Products",
+      "method": "GET",
+      "url": "{{ base_url }}/api/products",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "value": "api-key-123456"
+        }
+      ]
+    },
+    {
+      "_type": "request",
+      "parentId": "4. All Resources",
+      "name": "Get All Sales",
+      "method": "GET",
+      "url": "{{ base_url }}/api/sales",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "value": "api-key-123456"
+        }
+      ]
+    }
+  ]
+}

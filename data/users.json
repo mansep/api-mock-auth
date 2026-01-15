@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "password": "$2b$10$YQ98KxKLx7iLTvYbKJZWaewOPmhCvKKKqJX5dP1VmJQVjVXQqRy8W",
+    "email": "admin@example.com",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "admin",
+    "apiKey": "api-key-123456",
+    "active": true,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "2",
+    "username": "user",
+    "password": "$2b$10$8zK9qzDYx5xYMvK3R5sVU.lJJCZ7qZJ7JvHfYKMZLHZ8Y5Z3QZQY6",
+    "email": "user@example.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "role": "user",
+    "apiKey": "api-key-789012",
+    "active": true,
+    "createdAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "3",
+    "username": "jsmith",
+    "password": "$2b$10$abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKL",
+    "email": "jane.smith@example.com",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "role": "user",
+    "apiKey": "api-key-345678",
+    "active": true,
+    "createdAt": "2024-02-20T14:45:00Z"
+  },
+  {
+    "id": "4",
+    "username": "mbrown",
+    "password": "$2b$10$zyxwvutsrqponmlkjihgfedcba987654321ZYXWVUTSRQPONM",
+    "email": "mike.brown@example.com",
+    "firstName": "Mike",
+    "lastName": "Brown",
+    "role": "manager",
+    "apiKey": "api-key-901234",
+    "active": true,
+    "createdAt": "2024-03-10T08:15:00Z"
+  },
+  {
+    "id": "5",
+    "username": "swilson",
+    "password": "$2b$10$1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP",
+    "email": "sarah.wilson@example.com",
+    "firstName": "Sarah",
+    "lastName": "Wilson",
+    "role": "user",
+    "apiKey": "api-key-567890",
+    "active": false,
+    "createdAt": "2024-04-05T16:20:00Z"
+  }
+]
