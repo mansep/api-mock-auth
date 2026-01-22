@@ -1,5 +1,6 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, Get, Query } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus, Get, Query, Req } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
+import { Request } from 'express';
 import { AuthService } from './auth.service';
 import { TokenRequestDto } from './dto/token-request.dto';
 import { TokenResponseDto, AuthorizeResponseDto } from './dto/token-response.dto';
@@ -115,8 +116,10 @@ export class AuthController {
     description: 'Returns OAuth 2.0 server configuration' 
   })
   @ApiResponse({ status: 200, description: 'OAuth server metadata' })
-  async metadata(): Promise<any> {
-    const baseUrl = 'http://localhost:3000';
+  async metadata(@Req() req: Request): Promise<any> {
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
+    const host = req.headers['x-forwarded-host'] || req.headers.host || 'localhost:3000';
+    const baseUrl = `${protocol}://${host}`;
     return {
       issuer: baseUrl,
       authorization_endpoint: `${baseUrl}/oauth/authorize`,
