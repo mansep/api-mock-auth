@@ -205,6 +205,9 @@ export class LandingController {
         
         .method.get { background: #10b981; color: #fff; }
         .method.post { background: #f59e0b; color: #fff; }
+        .method.put { background: #3b82f6; color: #fff; }
+        .method.patch { background: #8b5cf6; color: #fff; }
+        .method.delete { background: #ef4444; color: #fff; }
         
         .endpoint code {
             font-family: 'Monaco', 'Menlo', monospace;
@@ -316,8 +319,18 @@ export class LandingController {
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
-                    <h3>Sample Data</h3>
-                    <p>Pre-loaded users, products and sales for immediate testing.</p>
+                    <h3>Full CRUD Operations</h3>
+                    <p>Complete GET, POST, PUT, PATCH, DELETE operations with in-memory persistence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Pagination & Search</h3>
+                    <p>Paginated endpoints with sorting, filtering, and search capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>File Upload</h3>
+                    <p>Mock file upload endpoints returning CDN-like URLs for testing.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
@@ -355,30 +368,111 @@ export class LandingController {
                     </div>
                 </div>
                 <div class="endpoint-group">
-                    <h3>📦 Protected Resources</h3>
+                    <h3>� Users (CRUD)</h3>
                     <div class="endpoint">
                         <span class="method get">GET</span>
                         <code>/api/users</code>
                     </div>
                     <div class="endpoint">
                         <span class="method get">GET</span>
+                        <code>/api/users/paginated</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method get">GET</span>
                         <code>/api/users/:id</code>
                     </div>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/users</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method put">PUT</span>
+                        <code>/api/users/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method patch">PATCH</span>
+                        <code>/api/users/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method delete">DEL</span>
+                        <code>/api/users/:id</code>
+                    </div>
+                </div>
+                <div class="endpoint-group">
+                    <h3>📦 Products (CRUD)</h3>
                     <div class="endpoint">
                         <span class="method get">GET</span>
                         <code>/api/products</code>
                     </div>
                     <div class="endpoint">
                         <span class="method get">GET</span>
+                        <code>/api/products/paginated</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method get">GET</span>
                         <code>/api/products/:id</code>
                     </div>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/products</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method put">PUT</span>
+                        <code>/api/products/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method patch">PATCH</span>
+                        <code>/api/products/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method delete">DEL</span>
+                        <code>/api/products/:id</code>
+                    </div>
+                </div>
+                <div class="endpoint-group">
+                    <h3>🛒 Sales (CRUD)</h3>
                     <div class="endpoint">
                         <span class="method get">GET</span>
                         <code>/api/sales</code>
                     </div>
                     <div class="endpoint">
                         <span class="method get">GET</span>
+                        <code>/api/sales/paginated</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method get">GET</span>
                         <code>/api/sales/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/sales</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method put">PUT</span>
+                        <code>/api/sales/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method patch">PATCH</span>
+                        <code>/api/sales/:id</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method delete">DEL</span>
+                        <code>/api/sales/:id</code>
+                    </div>
+                </div>
+                <div class="endpoint-group">
+                    <h3>📤 File Upload</h3>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/upload/single</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/upload/multiple</code>
+                    </div>
+                    <div class="endpoint">
+                        <span class="method post">POST</span>
+                        <code>/api/upload/image</code>
                     </div>
                 </div>
             </div>

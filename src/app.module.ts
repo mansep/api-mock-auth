@@ -4,9 +4,10 @@ import { UsersModule } from './resources/users/users.module';
 import { ProductsModule } from './resources/products/products.module';
 import { SalesModule } from './resources/sales/sales.module';
 import { LandingModule } from './landing/landing.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
-  imports: [LandingModule, AuthModule, UsersModule, ProductsModule, SalesModule],
+  imports: [LandingModule, AuthModule, UsersModule, ProductsModule, SalesModule, UploadModule],
   controllers: [],
   providers: [],
 })

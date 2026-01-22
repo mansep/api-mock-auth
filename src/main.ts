@@ -59,6 +59,7 @@ async function bootstrap() {
     .addTag('Users', 'User management (requires authentication)')
     .addTag('Products', 'Product management (requires authentication)')
     .addTag('Sales', 'Sales management (requires authentication)')
+    .addTag('Upload', 'File upload endpoints (mock)')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
