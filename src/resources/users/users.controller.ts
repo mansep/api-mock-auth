@@ -4,7 +4,7 @@ import { UsersService, User } from './users.service';
 import { UserDto } from './dto/user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { PaginationQueryDto } from '../../common/dto/pagination.dto';
+import { FilterQueryDto } from '../../common/dto/filter-query.dto';
 import { PaginatedUserResponseDto } from '../../common/dto/paginated-response.dto';
 import { MultiAuthGuard } from '../../auth/guards/multi-auth.guard';
 
@@ -27,15 +27,24 @@ export class UsersController {
   }
 
   @Get('paginated')
-  @ApiOperation({ summary: 'Get users with pagination', description: 'Returns paginated users with search and sort options' })
+  @ApiOperation({ summary: 'Get users with advanced filtering', description: 'Returns paginated users with search, filters, date ranges, and field selection' })
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (1-based)', example: 1 })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page', example: 10 })
-  @ApiQuery({ name: 'sortBy', required: false, type: String, description: 'Sort field', example: 'username' })
+  @ApiQuery({ name: 'sortBy', required: false, type: String, description: 'Sort field (supports nested: address.city)', example: 'username' })
   @ApiQuery({ name: 'sortOrder', required: false, enum: ['asc', 'desc'], description: 'Sort order' })
-  @ApiQuery({ name: 'search', required: false, type: String, description: 'Search query' })
-  @ApiResponse({ status: 200, description: 'Paginated list of users', type: PaginatedUserResponseDto })
+  @ApiQuery({ name: 'search', required: false, type: String, description: 'Global search query' })
+  @ApiQuery({ name: 'role', required: false, type: String, description: 'Filter by role', example: 'admin' })
+  @ApiQuery({ name: 'active', required: false, type: Boolean, description: 'Filter by active status' })
+  @ApiQuery({ name: 'country', required: false, type: String, description: 'Filter by country', example: 'United States' })
+  @ApiQuery({ name: 'city', required: false, type: String, description: 'Filter by city', example: 'San Francisco' })
+  @ApiQuery({ name: 'createdAfter', required: false, type: String, description: 'Created after date (ISO 8601)', example: '2024-01-01T00:00:00Z' })
+  @ApiQuery({ name: 'createdBefore', required: false, type: String, description: 'Created before date (ISO 8601)' })
+  @ApiQuery({ name: 'updatedAfter', required: false, type: String, description: 'Updated after date (ISO 8601)' })
+  @ApiQuery({ name: 'updatedBefore', required: false, type: String, description: 'Updated before date (ISO 8601)' })
+  @ApiQuery({ name: 'fields', required: false, type: String, description: 'Select specific fields (comma-separated)', example: 'id,username,email,role' })
+  @ApiResponse({ status: 200, description: 'Paginated and filtered list of users', type: PaginatedUserResponseDto })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  findAllPaginated(@Query() query: PaginationQueryDto): PaginatedUserResponseDto {
+  findAllPaginated(@Query() query: FilterQueryDto) {
     return this.usersService.findAllPaginated(query);
   }
 

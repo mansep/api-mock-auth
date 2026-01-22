@@ -1,188 +1,529 @@
 [
   {
-    "id": "1",
-    "orderId": "ORD-2024-001",
-    "userId": "2",
-    "customerName": "John Doe",
-    "customerEmail": "user@example.com",
-    "status": "completed",
-    "items": [
-      {
-        "productId": "1",
-        "productName": "Laptop Pro 15",
-        "quantity": 1,
-        "unitPrice": 1299.99,
-        "subtotal": 1299.99
-      },
-      {
-        "productId": "2",
-        "productName": "Wireless Mouse",
-        "quantity": 2,
-        "unitPrice": 29.99,
-        "subtotal": 59.98
-      }
-    ],
-    "subtotal": 1359.97,
-    "tax": 135.99,
-    "shipping": 15.00,
-    "total": 1510.96,
-    "currency": "USD",
-    "paymentMethod": "credit_card",
-    "shippingAddress": {
-      "street": "123 Main St",
-      "city": "New York",
-      "state": "NY",
-      "zipCode": "10001",
-      "country": "USA"
+    "id": "sale-001",
+    "orderId": "ORD-2025-0001",
+    "customerId": "user-002",
+    "customerInfo": {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1-555-0101",
+      "isGuest": false
     },
-    "createdAt": "2024-11-15T10:30:00Z",
-    "updatedAt": "2024-11-16T14:20:00Z",
-    "completedAt": "2024-11-16T14:20:00Z"
-  },
-  {
-    "id": "2",
-    "orderId": "ORD-2024-002",
-    "userId": "3",
-    "customerName": "Jane Smith",
-    "customerEmail": "jane.smith@example.com",
-    "status": "shipped",
     "items": [
       {
-        "productId": "3",
-        "productName": "4K Monitor 27 inch",
+        "productId": "prod-001",
+        "productName": "MacBook Pro 16\" M3 Max",
+        "sku": "MBP16-M3MAX-36",
+        "variant": { "id": "var-001", "name": "Space Black" },
         "quantity": 1,
-        "unitPrice": 449.99,
-        "subtotal": 449.99
+        "unitPrice": 3499.99,
+        "discount": { "type": "percentage", "value": 10, "amount": 349.99 },
+        "subtotal": 3149.99
       },
       {
-        "productId": "4",
-        "productName": "Mechanical Keyboard RGB",
+        "productId": "prod-005",
+        "productName": "Logitech MX Master 3S Wireless Mouse",
+        "sku": "LOGI-MXM3S",
+        "variant": { "id": "var-009", "name": "Graphite" },
         "quantity": 1,
-        "unitPrice": 89.99,
-        "subtotal": 89.99
+        "unitPrice": 99.99,
+        "discount": null,
+        "subtotal": 99.99
       }
     ],
-    "subtotal": 539.98,
-    "tax": 53.99,
-    "shipping": 20.00,
-    "total": 613.97,
-    "currency": "USD",
-    "paymentMethod": "paypal",
+    "pricing": {
+      "subtotal": 3249.98,
+      "discount": { "code": "WINTER10", "type": "percentage", "value": 10, "amount": 349.99 },
+      "tax": { "rate": 8.875, "amount": 257.40 },
+      "shipping": { "method": "Express", "cost": 0, "isFree": true },
+      "total": 3507.38
+    },
+    "status": "delivered",
+    "paymentMethod": "credit_card",
+    "paymentDetails": {
+      "provider": "Stripe",
+      "cardLast4": "4242",
+      "cardBrand": "Visa",
+      "transactionId": "txn_3QKjL2H5k8w9x0y1"
+    },
     "shippingAddress": {
-      "street": "456 Oak Avenue",
+      "street": "456 Main Street",
+      "apartment": "Apt 12B",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "USA",
+      "coordinates": { "lat": 34.0522, "lng": -118.2437 }
+    },
+    "billingAddress": {
+      "street": "456 Main Street",
       "city": "Los Angeles",
       "state": "CA",
       "zipCode": "90001",
       "country": "USA"
     },
-    "trackingNumber": "1Z999AA10123456784",
-    "createdAt": "2024-12-01T08:15:00Z",
-    "updatedAt": "2024-12-03T16:45:00Z",
-    "shippedAt": "2024-12-03T16:45:00Z"
+    "tracking": {
+      "carrier": "FedEx",
+      "trackingNumber": "7489274892748927",
+      "estimatedDelivery": "2025-01-18T00:00:00Z",
+      "events": [
+        { "status": "delivered", "location": "Los Angeles, CA", "timestamp": "2025-01-17T14:30:00Z" },
+        { "status": "out_for_delivery", "location": "Los Angeles, CA", "timestamp": "2025-01-17T08:00:00Z" },
+        { "status": "in_transit", "location": "Phoenix, AZ", "timestamp": "2025-01-16T22:00:00Z" },
+        { "status": "shipped", "location": "Dallas, TX", "timestamp": "2025-01-15T10:00:00Z" }
+      ]
+    },
+    "notes": "Please leave at the front door",
+    "tags": ["high-value", "repeat-customer"],
+    "createdAt": "2025-01-14T16:30:00Z",
+    "updatedAt": "2025-01-17T14:30:00Z",
+    "shippedAt": "2025-01-15T10:00:00Z",
+    "deliveredAt": "2025-01-17T14:30:00Z"
   },
   {
-    "id": "3",
-    "orderId": "ORD-2024-003",
-    "userId": "4",
-    "customerName": "Mike Brown",
-    "customerEmail": "mike.brown@example.com",
-    "status": "processing",
+    "id": "sale-002",
+    "orderId": "ORD-2025-0002",
+    "customerId": "user-003",
+    "customerInfo": {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "+1-555-0102",
+      "isGuest": false
+    },
     "items": [
       {
-        "productId": "7",
-        "productName": "External SSD 1TB",
-        "quantity": 3,
-        "unitPrice": 119.99,
-        "subtotal": 359.97
+        "productId": "prod-004",
+        "productName": "Samsung 65\" Neo QLED 8K Smart TV",
+        "sku": "SAMS-QN65QN900C",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 2999.99,
+        "discount": null,
+        "subtotal": 2999.99
       }
     ],
-    "subtotal": 359.97,
-    "tax": 35.99,
-    "shipping": 10.00,
-    "total": 405.96,
-    "currency": "USD",
-    "paymentMethod": "credit_card",
+    "pricing": {
+      "subtotal": 2999.99,
+      "discount": null,
+      "tax": { "rate": 10.25, "amount": 307.49 },
+      "shipping": { "method": "White Glove", "cost": 149.99, "isFree": false },
+      "total": 3457.47
+    },
+    "status": "shipped",
+    "paymentMethod": "paypal",
+    "paymentDetails": {
+      "provider": "PayPal",
+      "paypalEmail": "jane.smith@paypal.com",
+      "transactionId": "PAY-8XJ294K5M2N1P3Q4"
+    },
     "shippingAddress": {
-      "street": "789 Pine Road",
+      "street": "789 Oak Avenue",
+      "apartment": null,
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "USA",
+      "coordinates": { "lat": 41.8781, "lng": -87.6298 }
+    },
+    "billingAddress": {
+      "street": "789 Oak Avenue",
       "city": "Chicago",
       "state": "IL",
       "zipCode": "60601",
       "country": "USA"
     },
-    "createdAt": "2024-12-20T14:20:00Z",
-    "updatedAt": "2024-12-21T09:30:00Z"
+    "tracking": {
+      "carrier": "UPS",
+      "trackingNumber": "1Z999AA10123456784",
+      "estimatedDelivery": "2025-01-25T00:00:00Z",
+      "events": [
+        { "status": "in_transit", "location": "Memphis, TN", "timestamp": "2025-01-21T16:00:00Z" },
+        { "status": "shipped", "location": "Atlanta, GA", "timestamp": "2025-01-20T09:00:00Z" }
+      ]
+    },
+    "notes": "Call before delivery - installation included",
+    "tags": ["white-glove", "installation"],
+    "createdAt": "2025-01-19T11:00:00Z",
+    "updatedAt": "2025-01-21T16:00:00Z",
+    "shippedAt": "2025-01-20T09:00:00Z",
+    "deliveredAt": null
   },
   {
-    "id": "4",
-    "orderId": "ORD-2025-001",
-    "userId": "2",
-    "customerName": "John Doe",
-    "customerEmail": "user@example.com",
-    "status": "pending",
+    "id": "sale-003",
+    "orderId": "ORD-2025-0003",
+    "customerId": "user-004",
+    "customerInfo": {
+      "name": "Mike Brown",
+      "email": "mike.brown@example.com",
+      "phone": "+1-555-0103",
+      "isGuest": false
+    },
     "items": [
       {
-        "productId": "5",
-        "productName": "USB-C Hub 7-in-1",
+        "productId": "prod-010",
+        "productName": "Razer BlackWidow V4 Pro Keyboard",
+        "sku": "RAZER-BWV4P",
+        "variant": null,
         "quantity": 2,
-        "unitPrice": 39.99,
-        "subtotal": 79.98
+        "unitPrice": 229.99,
+        "discount": null,
+        "subtotal": 459.98
       },
       {
-        "productId": "6",
-        "productName": "Webcam HD 1080p",
-        "quantity": 1,
-        "unitPrice": 69.99,
-        "subtotal": 69.99
+        "productId": "prod-005",
+        "productName": "Logitech MX Master 3S Wireless Mouse",
+        "sku": "LOGI-MXM3S",
+        "variant": { "id": "var-010", "name": "Pale Gray" },
+        "quantity": 2,
+        "unitPrice": 99.99,
+        "discount": null,
+        "subtotal": 199.98
+      },
+      {
+        "productId": "prod-006",
+        "productName": "ASUS ROG Swift PG32UQX Gaming Monitor",
+        "sku": "ASUS-PG32UQX",
+        "variant": null,
+        "quantity": 2,
+        "unitPrice": 2499.99,
+        "discount": { "type": "fixed", "value": 200, "amount": 400 },
+        "subtotal": 4599.98
       }
     ],
-    "subtotal": 149.97,
-    "tax": 14.99,
-    "shipping": 8.00,
-    "total": 172.96,
-    "currency": "USD",
+    "pricing": {
+      "subtotal": 5259.94,
+      "discount": { "code": "BULK20", "type": "fixed", "value": 400, "amount": 400 },
+      "tax": { "rate": 7.65, "amount": 371.85 },
+      "shipping": { "method": "Standard", "cost": 29.99, "isFree": false },
+      "total": 5261.78
+    },
+    "status": "processing",
     "paymentMethod": "bank_transfer",
+    "paymentDetails": {
+      "provider": "Direct Bank",
+      "bankName": "Chase",
+      "accountLast4": "7890",
+      "transactionId": "BT-2025012100001"
+    },
     "shippingAddress": {
-      "street": "123 Main St",
-      "city": "New York",
-      "state": "NY",
-      "zipCode": "10001",
+      "street": "321 Tech Park",
+      "apartment": "Suite 500",
+      "city": "Denver",
+      "state": "CO",
+      "zipCode": "80201",
+      "country": "USA",
+      "coordinates": { "lat": 39.7392, "lng": -104.9903 }
+    },
+    "billingAddress": {
+      "street": "321 Tech Park",
+      "apartment": "Suite 500",
+      "city": "Denver",
+      "state": "CO",
+      "zipCode": "80201",
       "country": "USA"
     },
-    "createdAt": "2025-01-10T11:00:00Z",
-    "updatedAt": "2025-01-10T11:00:00Z"
+    "tracking": null,
+    "notes": "Corporate order - need invoice",
+    "tags": ["corporate", "bulk-order"],
+    "createdAt": "2025-01-21T09:45:00Z",
+    "updatedAt": "2025-01-21T09:45:00Z",
+    "shippedAt": null,
+    "deliveredAt": null
   },
   {
-    "id": "5",
-    "orderId": "ORD-2025-002",
-    "userId": "3",
-    "customerName": "Jane Smith",
-    "customerEmail": "jane.smith@example.com",
-    "status": "cancelled",
+    "id": "sale-004",
+    "orderId": "ORD-2025-0004",
+    "customerId": null,
+    "customerInfo": {
+      "name": "Guest Customer",
+      "email": "guest@tempmail.com",
+      "phone": "+1-555-0199",
+      "isGuest": true
+    },
     "items": [
       {
-        "productId": "8",
-        "productName": "Desk Lamp LED",
+        "productId": "prod-008",
+        "productName": "Nintendo Switch OLED Model",
+        "sku": "NINT-SWITCH-OLED",
+        "variant": { "id": "var-012", "name": "Neon" },
         "quantity": 1,
-        "unitPrice": 34.99,
-        "subtotal": 34.99
+        "unitPrice": 349.99,
+        "discount": null,
+        "subtotal": 349.99
+      },
+      {
+        "productId": "prod-003",
+        "productName": "Sony WH-1000XM5 Wireless Headphones",
+        "sku": "SONY-WH1000XM5",
+        "variant": { "id": "var-007", "name": "Black" },
+        "quantity": 1,
+        "unitPrice": 349.99,
+        "discount": null,
+        "subtotal": 349.99
       }
     ],
-    "subtotal": 34.99,
-    "tax": 3.49,
-    "shipping": 5.00,
-    "total": 43.48,
-    "currency": "USD",
-    "paymentMethod": "credit_card",
+    "pricing": {
+      "subtotal": 699.98,
+      "discount": null,
+      "tax": { "rate": 6.5, "amount": 45.49 },
+      "shipping": { "method": "Standard", "cost": 9.99, "isFree": false },
+      "total": 755.46
+    },
+    "status": "pending",
+    "paymentMethod": "apple_pay",
+    "paymentDetails": {
+      "provider": "Apple Pay",
+      "transactionId": "AP-9K8L7M6N5O4P3Q2"
+    },
     "shippingAddress": {
-      "street": "456 Oak Avenue",
-      "city": "Los Angeles",
-      "state": "CA",
-      "zipCode": "90001",
+      "street": "999 Random Street",
+      "apartment": null,
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101",
+      "country": "USA",
+      "coordinates": { "lat": 47.6062, "lng": -122.3321 }
+    },
+    "billingAddress": {
+      "street": "999 Random Street",
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101",
       "country": "USA"
     },
-    "createdAt": "2025-01-12T15:30:00Z",
-    "updatedAt": "2025-01-13T10:15:00Z",
-    "cancelledAt": "2025-01-13T10:15:00Z",
-    "cancellationReason": "Product out of stock"
+    "tracking": null,
+    "notes": null,
+    "tags": ["guest-checkout"],
+    "createdAt": "2025-01-22T10:15:00Z",
+    "updatedAt": "2025-01-22T10:15:00Z",
+    "shippedAt": null,
+    "deliveredAt": null
+  },
+  {
+    "id": "sale-005",
+    "orderId": "ORD-2025-0005",
+    "customerId": "user-006",
+    "customerInfo": {
+      "name": "Carlos García",
+      "email": "carlos.garcia@example.com",
+      "phone": "+34-600-123456",
+      "isGuest": false
+    },
+    "items": [
+      {
+        "productId": "prod-002",
+        "productName": "iPhone 15 Pro Max 256GB",
+        "sku": "IP15PM-256-TI",
+        "variant": { "id": "var-004", "name": "Blue Titanium" },
+        "quantity": 1,
+        "unitPrice": 1199.99,
+        "discount": null,
+        "subtotal": 1199.99
+      },
+      {
+        "productId": "prod-009",
+        "productName": "Bose QuietComfort Ultra Earbuds",
+        "sku": "BOSE-QCUE",
+        "variant": { "id": "var-014", "name": "White Smoke" },
+        "quantity": 1,
+        "unitPrice": 299.99,
+        "discount": null,
+        "subtotal": 299.99
+      }
+    ],
+    "pricing": {
+      "subtotal": 1499.98,
+      "discount": null,
+      "tax": { "rate": 21, "amount": 314.99 },
+      "shipping": { "method": "International Express", "cost": 49.99, "isFree": false },
+      "total": 1864.96
+    },
+    "status": "completed",
+    "paymentMethod": "credit_card",
+    "paymentDetails": {
+      "provider": "Stripe",
+      "cardLast4": "1234",
+      "cardBrand": "Mastercard",
+      "transactionId": "txn_5RLmN3I6l9x0y2z3"
+    },
+    "shippingAddress": {
+      "street": "Calle Mayor 45",
+      "apartment": "3º Izq",
+      "city": "Madrid",
+      "state": "Madrid",
+      "zipCode": "28001",
+      "country": "Spain",
+      "coordinates": { "lat": 40.4168, "lng": -3.7038 }
+    },
+    "billingAddress": {
+      "street": "Calle Mayor 45",
+      "apartment": "3º Izq",
+      "city": "Madrid",
+      "state": "Madrid",
+      "zipCode": "28001",
+      "country": "Spain"
+    },
+    "tracking": {
+      "carrier": "DHL",
+      "trackingNumber": "JD014600006408369235",
+      "estimatedDelivery": "2025-01-16T00:00:00Z",
+      "events": [
+        { "status": "delivered", "location": "Madrid, Spain", "timestamp": "2025-01-15T11:30:00Z" },
+        { "status": "out_for_delivery", "location": "Madrid, Spain", "timestamp": "2025-01-15T07:00:00Z" },
+        { "status": "customs_cleared", "location": "Madrid, Spain", "timestamp": "2025-01-14T15:00:00Z" },
+        { "status": "in_transit", "location": "Leipzig, Germany", "timestamp": "2025-01-13T04:00:00Z" },
+        { "status": "shipped", "location": "Los Angeles, CA", "timestamp": "2025-01-10T18:00:00Z" }
+      ]
+    },
+    "notes": "International shipment",
+    "tags": ["international", "completed"],
+    "createdAt": "2025-01-09T15:30:00Z",
+    "updatedAt": "2025-01-15T11:30:00Z",
+    "shippedAt": "2025-01-10T18:00:00Z",
+    "deliveredAt": "2025-01-15T11:30:00Z"
+  },
+  {
+    "id": "sale-006",
+    "orderId": "ORD-2025-0006",
+    "customerId": "user-007",
+    "customerInfo": {
+      "name": "Emily Chen",
+      "email": "emily.chen@example.com",
+      "phone": "+1-555-0105",
+      "isGuest": false
+    },
+    "items": [
+      {
+        "productId": "prod-011",
+        "productName": "DJI Mavic 3 Pro Drone",
+        "sku": "DJI-M3PRO",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 2199.99,
+        "discount": { "type": "percentage", "value": 5, "amount": 110 },
+        "subtotal": 2089.99
+      }
+    ],
+    "pricing": {
+      "subtotal": 2089.99,
+      "discount": { "code": "DRONE5", "type": "percentage", "value": 5, "amount": 110 },
+      "tax": { "rate": 8.625, "amount": 180.26 },
+      "shipping": { "method": "Express", "cost": 0, "isFree": true },
+      "total": 2270.25
+    },
+    "status": "cancelled",
+    "paymentMethod": "credit_card",
+    "paymentDetails": {
+      "provider": "Stripe",
+      "cardLast4": "9876",
+      "cardBrand": "Amex",
+      "transactionId": "txn_6SMoO4J7m0y1z3a4",
+      "refundId": "re_7TNpP5K8n1z2a4b5"
+    },
+    "shippingAddress": {
+      "street": "888 Creative Blvd",
+      "apartment": "Unit 42",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102",
+      "country": "USA",
+      "coordinates": { "lat": 37.7749, "lng": -122.4194 }
+    },
+    "billingAddress": {
+      "street": "888 Creative Blvd",
+      "apartment": "Unit 42",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102",
+      "country": "USA"
+    },
+    "tracking": null,
+    "notes": "Customer requested cancellation - found better price elsewhere",
+    "tags": ["cancelled", "refunded"],
+    "createdAt": "2025-01-18T14:20:00Z",
+    "updatedAt": "2025-01-19T09:00:00Z",
+    "cancelledAt": "2025-01-19T09:00:00Z",
+    "shippedAt": null,
+    "deliveredAt": null
+  },
+  {
+    "id": "sale-007",
+    "orderId": "ORD-2025-0007",
+    "customerId": "user-008",
+    "customerInfo": {
+      "name": "David Kim",
+      "email": "david.kim@example.com",
+      "phone": "+82-10-1234-5678",
+      "isGuest": false
+    },
+    "items": [
+      {
+        "productId": "prod-012",
+        "productName": "Dell XPS 15 (2024)",
+        "sku": "DELL-XPS15-2024",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 2299.99,
+        "discount": null,
+        "subtotal": 2299.99
+      },
+      {
+        "productId": "prod-007",
+        "productName": "Dyson V15 Detect Absolute Vacuum",
+        "sku": "DYSON-V15-ABS",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 749.99,
+        "discount": null,
+        "subtotal": 749.99
+      }
+    ],
+    "pricing": {
+      "subtotal": 3049.98,
+      "discount": null,
+      "tax": { "rate": 10, "amount": 304.99 },
+      "shipping": { "method": "International Standard", "cost": 79.99, "isFree": false },
+      "total": 3434.96
+    },
+    "status": "shipped",
+    "paymentMethod": "credit_card",
+    "paymentDetails": {
+      "provider": "Stripe",
+      "cardLast4": "5555",
+      "cardBrand": "Visa",
+      "transactionId": "txn_8UOqQ6L9o2a3b5c6"
+    },
+    "shippingAddress": {
+      "street": "123 Gangnam-daero",
+      "apartment": "Tower A, 25F",
+      "city": "Seoul",
+      "state": "Seoul",
+      "zipCode": "06134",
+      "country": "South Korea",
+      "coordinates": { "lat": 37.4979, "lng": 127.0276 }
+    },
+    "billingAddress": {
+      "street": "123 Gangnam-daero",
+      "apartment": "Tower A, 25F",
+      "city": "Seoul",
+      "state": "Seoul",
+      "zipCode": "06134",
+      "country": "South Korea"
+    },
+    "tracking": {
+      "carrier": "DHL",
+      "trackingNumber": "JD014600006408500123",
+      "estimatedDelivery": "2025-01-28T00:00:00Z",
+      "events": [
+        { "status": "in_transit", "location": "Hong Kong", "timestamp": "2025-01-22T06:00:00Z" },
+        { "status": "shipped", "location": "Los Angeles, CA", "timestamp": "2025-01-20T12:00:00Z" }
+      ]
+    },
+    "notes": "International shipment to South Korea",
+    "tags": ["international", "asia-pacific"],
+    "createdAt": "2025-01-19T02:30:00Z",
+    "updatedAt": "2025-01-22T06:00:00Z",
+    "shippedAt": "2025-01-20T12:00:00Z",
+    "deliveredAt": null
   }
 ]

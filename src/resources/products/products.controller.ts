@@ -4,7 +4,7 @@ import { ProductsService, Product } from './products.service';
 import { ProductDto } from './dto/product.dto';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { PaginationQueryDto } from '../../common/dto/pagination.dto';
+import { FilterQueryDto } from '../../common/dto/filter-query.dto';
 import { PaginatedProductResponseDto } from '../../common/dto/paginated-response.dto';
 import { MultiAuthGuard } from '../../auth/guards/multi-auth.guard';
 
@@ -27,15 +27,29 @@ export class ProductsController {
   }
 
   @Get('paginated')
-  @ApiOperation({ summary: 'Get products with pagination', description: 'Returns paginated products with search and sort options' })
+  @ApiOperation({ summary: 'Get products with advanced filtering', description: 'Returns paginated products with search, filters, date ranges, and field selection' })
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number (1-based)', example: 1 })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Items per page', example: 10 })
-  @ApiQuery({ name: 'sortBy', required: false, type: String, description: 'Sort field', example: 'name' })
+  @ApiQuery({ name: 'sortBy', required: false, type: String, description: 'Sort field (supports nested: pricing.total)', example: 'price' })
   @ApiQuery({ name: 'sortOrder', required: false, enum: ['asc', 'desc'], description: 'Sort order' })
-  @ApiQuery({ name: 'search', required: false, type: String, description: 'Search query' })
-  @ApiResponse({ status: 200, description: 'Paginated list of products', type: PaginatedProductResponseDto })
+  @ApiQuery({ name: 'search', required: false, type: String, description: 'Global search query' })
+  @ApiQuery({ name: 'category', required: false, type: String, description: 'Filter by category', example: 'Electronics' })
+  @ApiQuery({ name: 'brand', required: false, type: String, description: 'Filter by brand', example: 'Apple' })
+  @ApiQuery({ name: 'active', required: false, type: Boolean, description: 'Filter by active status' })
+  @ApiQuery({ name: 'tags', required: false, type: String, description: 'Filter by tags (comma-separated)', example: 'premium,wireless' })
+  @ApiQuery({ name: 'minPrice', required: false, type: Number, description: 'Minimum price', example: 100 })
+  @ApiQuery({ name: 'maxPrice', required: false, type: Number, description: 'Maximum price', example: 1000 })
+  @ApiQuery({ name: 'minStock', required: false, type: Number, description: 'Minimum stock' })
+  @ApiQuery({ name: 'maxStock', required: false, type: Number, description: 'Maximum stock' })
+  @ApiQuery({ name: 'minRating', required: false, type: Number, description: 'Minimum rating (1-5)', example: 4 })
+  @ApiQuery({ name: 'createdAfter', required: false, type: String, description: 'Created after date (ISO 8601)', example: '2024-01-01T00:00:00Z' })
+  @ApiQuery({ name: 'createdBefore', required: false, type: String, description: 'Created before date (ISO 8601)' })
+  @ApiQuery({ name: 'updatedAfter', required: false, type: String, description: 'Updated after date (ISO 8601)' })
+  @ApiQuery({ name: 'updatedBefore', required: false, type: String, description: 'Updated before date (ISO 8601)' })
+  @ApiQuery({ name: 'fields', required: false, type: String, description: 'Select specific fields (comma-separated)', example: 'id,name,price,brand' })
+  @ApiResponse({ status: 200, description: 'Paginated and filtered list of products', type: PaginatedProductResponseDto })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  findAllPaginated(@Query() query: PaginationQueryDto): PaginatedProductResponseDto {
+  findAllPaginated(@Query() query: FilterQueryDto) {
     return this.productsService.findAllPaginated(query);
   }
 

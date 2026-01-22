@@ -1,62 +1,304 @@
 [
   {
-    "id": "1",
+    "id": "user-001",
     "username": "admin",
-    "password": "$2b$10$YQ98KxKLx7iLTvYbKJZWaewOPmhCvKKKqJX5dP1VmJQVjVXQqRy8W",
     "email": "admin@example.com",
-    "firstName": "Admin",
-    "lastName": "User",
+    "firstName": "Alex",
+    "lastName": "Administrator",
     "role": "admin",
     "apiKey": "api-key-123456",
+    "avatar": "https://cdn.example.com/avatars/admin.jpg",
+    "phone": "+1-555-0100",
+    "department": "IT",
+    "permissions": ["read", "write", "delete", "admin"],
+    "preferences": {
+      "theme": "dark",
+      "language": "en",
+      "notifications": { "email": true, "push": true, "sms": false },
+      "timezone": "America/New_York"
+    },
+    "address": {
+      "street": "123 Admin Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    },
+    "socialLinks": [
+      { "platform": "linkedin", "url": "https://linkedin.com/in/alexadmin" },
+      { "platform": "github", "url": "https://github.com/alexadmin" }
+    ],
     "active": true,
-    "createdAt": "2024-01-01T00:00:00Z"
+    "verified": true,
+    "twoFactorEnabled": true,
+    "loginHistory": [
+      { "timestamp": "2025-01-22T08:30:00Z", "ip": "192.168.1.100", "device": "Chrome/Windows" },
+      { "timestamp": "2025-01-21T09:15:00Z", "ip": "192.168.1.100", "device": "Chrome/Windows" }
+    ],
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2025-01-22T08:30:00Z",
+    "lastLogin": "2025-01-22T08:30:00Z"
   },
   {
-    "id": "2",
-    "username": "user",
-    "password": "$2b$10$8zK9qzDYx5xYMvK3R5sVU.lJJCZ7qZJ7JvHfYKMZLHZ8Y5Z3QZQY6",
-    "email": "user@example.com",
+    "id": "user-002",
+    "username": "johndoe",
+    "email": "john.doe@example.com",
     "firstName": "John",
     "lastName": "Doe",
     "role": "user",
     "apiKey": "api-key-789012",
+    "avatar": "https://cdn.example.com/avatars/john.jpg",
+    "phone": "+1-555-0101",
+    "department": "Sales",
+    "permissions": ["read", "write"],
+    "preferences": {
+      "theme": "light",
+      "language": "en",
+      "notifications": { "email": true, "push": false, "sms": false },
+      "timezone": "America/Los_Angeles"
+    },
+    "address": {
+      "street": "456 Main Street",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "country": "USA"
+    },
+    "socialLinks": [
+      { "platform": "twitter", "url": "https://twitter.com/johndoe" }
+    ],
     "active": true,
-    "createdAt": "2024-01-15T10:30:00Z"
+    "verified": true,
+    "twoFactorEnabled": false,
+    "loginHistory": [
+      { "timestamp": "2025-01-21T14:20:00Z", "ip": "10.0.0.50", "device": "Safari/macOS" }
+    ],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2025-01-21T14:20:00Z",
+    "lastLogin": "2025-01-21T14:20:00Z"
   },
   {
-    "id": "3",
-    "username": "jsmith",
-    "password": "$2b$10$abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKL",
+    "id": "user-003",
+    "username": "janesmith",
     "email": "jane.smith@example.com",
     "firstName": "Jane",
     "lastName": "Smith",
-    "role": "user",
+    "role": "manager",
     "apiKey": "api-key-345678",
+    "avatar": "https://cdn.example.com/avatars/jane.jpg",
+    "phone": "+1-555-0102",
+    "department": "Marketing",
+    "permissions": ["read", "write", "delete"],
+    "preferences": {
+      "theme": "auto",
+      "language": "en",
+      "notifications": { "email": true, "push": true, "sms": true },
+      "timezone": "America/Chicago"
+    },
+    "address": {
+      "street": "789 Oak Avenue",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "USA"
+    },
+    "socialLinks": [
+      { "platform": "linkedin", "url": "https://linkedin.com/in/janesmith" },
+      { "platform": "twitter", "url": "https://twitter.com/janesmith" }
+    ],
     "active": true,
-    "createdAt": "2024-02-20T14:45:00Z"
+    "verified": true,
+    "twoFactorEnabled": true,
+    "loginHistory": [
+      { "timestamp": "2025-01-22T07:00:00Z", "ip": "172.16.0.25", "device": "Firefox/Linux" }
+    ],
+    "createdAt": "2024-02-20T14:45:00Z",
+    "updatedAt": "2025-01-22T07:00:00Z",
+    "lastLogin": "2025-01-22T07:00:00Z"
   },
   {
-    "id": "4",
-    "username": "mbrown",
-    "password": "$2b$10$zyxwvutsrqponmlkjihgfedcba987654321ZYXWVUTSRQPONM",
+    "id": "user-004",
+    "username": "mikebrown",
     "email": "mike.brown@example.com",
     "firstName": "Mike",
     "lastName": "Brown",
-    "role": "manager",
+    "role": "developer",
     "apiKey": "api-key-901234",
+    "avatar": "https://cdn.example.com/avatars/mike.jpg",
+    "phone": "+1-555-0103",
+    "department": "Engineering",
+    "permissions": ["read", "write"],
+    "preferences": {
+      "theme": "dark",
+      "language": "en",
+      "notifications": { "email": false, "push": true, "sms": false },
+      "timezone": "America/Denver"
+    },
+    "address": {
+      "street": "321 Tech Park",
+      "city": "Denver",
+      "state": "CO",
+      "zipCode": "80201",
+      "country": "USA"
+    },
+    "socialLinks": [
+      { "platform": "github", "url": "https://github.com/mikebrown" }
+    ],
     "active": true,
-    "createdAt": "2024-03-10T08:15:00Z"
+    "verified": true,
+    "twoFactorEnabled": false,
+    "loginHistory": [],
+    "createdAt": "2024-03-10T08:15:00Z",
+    "updatedAt": "2025-01-20T16:30:00Z",
+    "lastLogin": "2025-01-20T16:30:00Z"
   },
   {
-    "id": "5",
-    "username": "swilson",
-    "password": "$2b$10$1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP",
+    "id": "user-005",
+    "username": "sarahwilson",
     "email": "sarah.wilson@example.com",
     "firstName": "Sarah",
     "lastName": "Wilson",
     "role": "user",
     "apiKey": "api-key-567890",
+    "avatar": null,
+    "phone": "+1-555-0104",
+    "department": "Support",
+    "permissions": ["read"],
+    "preferences": {
+      "theme": "light",
+      "language": "es",
+      "notifications": { "email": true, "push": false, "sms": false },
+      "timezone": "America/New_York"
+    },
+    "address": {
+      "street": "555 Support Lane",
+      "city": "Boston",
+      "state": "MA",
+      "zipCode": "02101",
+      "country": "USA"
+    },
+    "socialLinks": [],
     "active": false,
-    "createdAt": "2024-04-05T16:20:00Z"
+    "verified": false,
+    "twoFactorEnabled": false,
+    "loginHistory": [],
+    "createdAt": "2024-04-05T16:20:00Z",
+    "updatedAt": "2024-10-15T09:00:00Z",
+    "lastLogin": null
+  },
+  {
+    "id": "user-006",
+    "username": "carlos_garcia",
+    "email": "carlos.garcia@example.com",
+    "firstName": "Carlos",
+    "lastName": "García",
+    "role": "analyst",
+    "apiKey": "api-key-234567",
+    "avatar": "https://cdn.example.com/avatars/carlos.jpg",
+    "phone": "+34-600-123456",
+    "department": "Analytics",
+    "permissions": ["read", "write"],
+    "preferences": {
+      "theme": "dark",
+      "language": "es",
+      "notifications": { "email": true, "push": true, "sms": false },
+      "timezone": "Europe/Madrid"
+    },
+    "address": {
+      "street": "Calle Mayor 45",
+      "city": "Madrid",
+      "state": "Madrid",
+      "zipCode": "28001",
+      "country": "Spain"
+    },
+    "socialLinks": [
+      { "platform": "linkedin", "url": "https://linkedin.com/in/carlosgarcia" }
+    ],
+    "active": true,
+    "verified": true,
+    "twoFactorEnabled": true,
+    "loginHistory": [
+      { "timestamp": "2025-01-22T09:00:00Z", "ip": "85.120.45.67", "device": "Chrome/Windows" }
+    ],
+    "createdAt": "2024-05-12T11:00:00Z",
+    "updatedAt": "2025-01-22T09:00:00Z",
+    "lastLogin": "2025-01-22T09:00:00Z"
+  },
+  {
+    "id": "user-007",
+    "username": "emily_chen",
+    "email": "emily.chen@example.com",
+    "firstName": "Emily",
+    "lastName": "Chen",
+    "role": "designer",
+    "apiKey": "api-key-678901",
+    "avatar": "https://cdn.example.com/avatars/emily.jpg",
+    "phone": "+1-555-0105",
+    "department": "Design",
+    "permissions": ["read", "write"],
+    "preferences": {
+      "theme": "auto",
+      "language": "en",
+      "notifications": { "email": true, "push": true, "sms": false },
+      "timezone": "America/Los_Angeles"
+    },
+    "address": {
+      "street": "888 Creative Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102",
+      "country": "USA"
+    },
+    "socialLinks": [
+      { "platform": "dribbble", "url": "https://dribbble.com/emilychen" },
+      { "platform": "behance", "url": "https://behance.net/emilychen" }
+    ],
+    "active": true,
+    "verified": true,
+    "twoFactorEnabled": false,
+    "loginHistory": [
+      { "timestamp": "2025-01-21T18:45:00Z", "ip": "73.158.92.11", "device": "Safari/macOS" }
+    ],
+    "createdAt": "2024-06-20T09:30:00Z",
+    "updatedAt": "2025-01-21T18:45:00Z",
+    "lastLogin": "2025-01-21T18:45:00Z"
+  },
+  {
+    "id": "user-008",
+    "username": "david_kim",
+    "email": "david.kim@example.com",
+    "firstName": "David",
+    "lastName": "Kim",
+    "role": "developer",
+    "apiKey": "api-key-890123",
+    "avatar": "https://cdn.example.com/avatars/david.jpg",
+    "phone": "+82-10-1234-5678",
+    "department": "Engineering",
+    "permissions": ["read", "write", "delete"],
+    "preferences": {
+      "theme": "dark",
+      "language": "ko",
+      "notifications": { "email": false, "push": true, "sms": false },
+      "timezone": "Asia/Seoul"
+    },
+    "address": {
+      "street": "123 Gangnam-daero",
+      "city": "Seoul",
+      "state": "Seoul",
+      "zipCode": "06134",
+      "country": "South Korea"
+    },
+    "socialLinks": [
+      { "platform": "github", "url": "https://github.com/davidkim" }
+    ],
+    "active": true,
+    "verified": true,
+    "twoFactorEnabled": true,
+    "loginHistory": [
+      { "timestamp": "2025-01-22T02:00:00Z", "ip": "211.234.56.78", "device": "Chrome/macOS" }
+    ],
+    "createdAt": "2024-07-15T14:00:00Z",
+    "updatedAt": "2025-01-22T02:00:00Z",
+    "lastLogin": "2025-01-22T02:00:00Z"
   }
 ]
