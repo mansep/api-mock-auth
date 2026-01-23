@@ -1,56 +1,80 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNumber, IsBoolean, IsOptional, Min } from 'class-validator';
+import { ApiPropertyOptional, ApiExtraModels } from '@nestjs/swagger';
+import { IsOptional } from 'class-validator';
 
+/**
+ * UpdateProductDto - Accepts any field for mock testing
+ * This is a mock API, so we allow updating any field without restrictions
+ */
+@ApiExtraModels()
 export class UpdateProductDto {
   @ApiPropertyOptional({ description: 'Product name', example: 'Gaming Laptop X1 Pro' })
   @IsOptional()
-  @IsString()
   name?: string;
 
   @ApiPropertyOptional({ description: 'Product description', example: 'Updated gaming laptop description' })
   @IsOptional()
-  @IsString()
   description?: string;
 
   @ApiPropertyOptional({ description: 'Product category', example: 'Electronics' })
   @IsOptional()
-  @IsString()
   category?: string;
+
+  @ApiPropertyOptional({ description: 'Product subcategory', example: 'Laptops' })
+  @IsOptional()
+  subcategory?: string;
 
   @ApiPropertyOptional({ description: 'Product price', example: 2199.99 })
   @IsOptional()
-  @IsNumber()
-  @Min(0)
   price?: number;
 
   @ApiPropertyOptional({ description: 'Currency', example: 'USD' })
   @IsOptional()
-  @IsString()
   currency?: string;
 
   @ApiPropertyOptional({ description: 'Available stock', example: 30 })
   @IsOptional()
-  @IsNumber()
-  @Min(0)
   stock?: number;
 
   @ApiPropertyOptional({ description: 'Product SKU', example: 'GAM-LAP-X1P-001' })
   @IsOptional()
-  @IsString()
   sku?: string;
 
   @ApiPropertyOptional({ description: 'Product brand', example: 'TechBrand' })
   @IsOptional()
-  @IsString()
   brand?: string;
 
-  @ApiPropertyOptional({ description: 'Image URL', example: 'https://example.com/images/laptop-v2.jpg' })
+  @ApiPropertyOptional({ description: 'Product tags', example: ['gaming', 'premium', 'laptop'], type: [String] })
   @IsOptional()
-  @IsString()
-  imageUrl?: string;
+  tags?: string[];
 
-  @ApiPropertyOptional({ description: 'Product active status' })
+  @ApiPropertyOptional({ description: 'Product specifications (any structure)', example: { processor: 'Intel i9', ram: '32GB' } })
   @IsOptional()
-  @IsBoolean()
+  specifications?: Record<string, any>;
+
+  @ApiPropertyOptional({ description: 'Product images', type: 'array', example: [{ url: 'https://example.com/img.jpg', alt: 'Image', isPrimary: true }] })
+  @IsOptional()
+  images?: any[];
+
+  @ApiPropertyOptional({ description: 'Product variants', type: 'array', example: [{ id: 'v1', name: 'Black', priceModifier: 0 }] })
+  @IsOptional()
+  variants?: any[];
+
+  @ApiPropertyOptional({ description: 'Product rating', example: 4.5 })
+  @IsOptional()
+  rating?: number;
+
+  @ApiPropertyOptional({ description: 'Shipping info', example: { weight: 2.5, freeShipping: true } })
+  @IsOptional()
+  shipping?: Record<string, any>;
+
+  @ApiPropertyOptional({ description: 'Product active status', example: true })
+  @IsOptional()
   active?: boolean;
+
+  @ApiPropertyOptional({ description: 'Featured product', example: true })
+  @IsOptional()
+  featured?: boolean;
+
+  /** Allow any additional fields */
+  [key: string]: any;
 }

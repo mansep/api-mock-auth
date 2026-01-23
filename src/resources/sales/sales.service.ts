@@ -305,7 +305,7 @@ export class SalesService {
       ...this.sales[index],
       ...updateSaleDto,
       updatedAt: new Date().toISOString(),
-    };
+    } as Sale;
     this.sales[index] = updatedSale;
     return updatedSale;
   }
